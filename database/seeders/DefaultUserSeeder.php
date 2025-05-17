@@ -17,7 +17,7 @@ class DefaultUserSeeder extends Seeder
         User::updateOrCreate(
             ['email' => 'jointheteam@aglet.co.za'],
             [
-                'name' => 'Join The Team',
+                'name' => 'Jointheteam',
                 'email' => 'jointheteam@aglet.co.za',
                 'password' => Hash::make('@TeamAglet')
             ]
