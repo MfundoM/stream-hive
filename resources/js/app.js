@@ -86,7 +86,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     data.results.slice(0, 5).forEach(movie => {
                         const li = document.createElement("li");
                         li.textContent = movie.title;
-                        li.className = "px-4 py-2 hover:bg-gray-100 hover:text-gray-600 cursor-pointer";
+                        li.style.padding = "0.5rem 1rem";
+                        li.style.cursor = "pointer";
+                        li.onmouseover = () => {
+                            li.style.backgroundColor = "#f7fafc";
+                            li.style.color = "#4a5568";
+                        };
+                        li.onmouseout = () => {
+                            li.style.backgroundColor = "";
+                            li.style.color = "";
+                        };
                         li.addEventListener("click", () => {
                             searchInput.value = movie.title;
                             resultsBox.classList.add("hidden");
