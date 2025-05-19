@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     modalContent.innerHTML = `
                         <h2 class="text-2xl font-bold mb-4 text-gray-200">${data.movie.title}</h2>
                         ${data.trailer_key
-                            ? `<iframe class="w-full h-64 mb-2" src="https://www.youtube.com/embed/${data.trailer_key}?autoplay=1&mute=1&controls=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`
-                            : `<img src="https://image.tmdb.org/t/p/w500${data.movie.poster_path}" alt="${data.movie.title}" class="w-full max-h-96 object-contain mb-2" />`
+                            ? `<iframe class="w-full h-64 mb-2" style="height: 16rem;" src="https://www.youtube.com/embed/${data.trailer_key}?autoplay=1&mute=1&controls=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`
+                            : `<img src="https://image.tmdb.org/t/p/w500${data.movie.poster_path}" alt="${data.movie.title}" class="w-full max-h-96 object-contain mb-2" style="max-height: 384px; object-fit: contain;" />`
                         }
                         <p class="pt-0 text-gray-200"><strong>Release Date:</strong> ${data.movie.release_date}</p>
                         <p class="pt-0 text-gray-200">${data.movie.overview || 'No description available.'}</p>
