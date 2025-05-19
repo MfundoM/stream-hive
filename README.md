@@ -1,61 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# StreamHive - TMDB Movie Explorer
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Overview
 
-## About Laravel
+**StreamHive** is a Laravel-based movie listing application built using The Movie Database (TMDB) API. It allows users to view popular movies, save favorites, and contact the developer. This app was created as part of a professional coding assessment by **Aglet Interactive**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The application is responsive and styled using **Tailwind CSS**. It includes a working **authentication system**, **favorites feature**, **search with autocomplete**, **movie detail modals**, and a **contact page**.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Tech Stack
 
-## Learning Laravel
+- **Backend:** Laravel 12 (PHP 8.2)
+- **Frontend:** Blade, TailwindCSS
+- **Database:** MySQL
+- **API:** The Movie Database (TMDB)
+- **Authentication:** Laravel Breeze
+- **Search:** AJAX with TMDB autocomplete endpoint
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Why Laravel (PHP)?
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+I chose **Laravel** as the backend framework due to its elegant syntax, powerful built-in features, and robust ecosystem. It simplifies common tasks such as:
 
-## Laravel Sponsors
+- Database management via Eloquent ORM
+- Route handling and middleware
+- Authentication
+- API integration
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Using Laravel allowed me to rapidly scaffold out the required features while keeping the codebase organized and testable.
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Why TailwindCSS?
 
-## Contributing
+TailwindCSS enables utility-first styling, which is perfect for rapidly developing a responsive and visually appealing frontend. It also makes it easy to maintain consistent spacing, colors, and responsive breakpoints.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## My Thinking
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **User-first approach:** I ensured all views are intuitive and mobile-friendly.
+- **Code maintainability:** Separation of concerns via models, controllers, views, and services.
+- **Scalability:** TMDB integration is isolated so it can be easily extended or replaced.
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Features
 
-## License
+- Fetch and display movies from TMDB (paginated, 9 per page, up to 45 total)
+- View movie details and trailer
+- Save favorite movies (requires login)
+- Predefined test user login:
+  - **Username:** `jointheteam`
+  - **Email:** `jointheteam@aglet.co.za`
+  - **Password:** `@TeamAglet`
+- View favorite movies
+- Responsive layout
+- Contact page with developer info
+- Clean UI
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## Brownie Points Achieved
+
+- Movie search with autocomplete using TMDB search endpoint
+- Movie detail popup modals with extended info (title, overview, trailer)
+- Responsive and professional frontend UI
+- Converted into a WordPress plugin: [StreamHive Plugin (Attempt)](https://github.com/MfundoM/stream-hive-plugin)
+
+---
+
+## Installation Guide
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/MfundoM/stream-hive.git
+   cd stream-hive
+
+   # Install dependencies
+    composer install
+
+    # Create environment file
+    cp .env.example .env
+
+    # Generate app key
+    php artisan key:generate
+
+    # Configure your .env with DB credentials and tmdb api-key
+    DB_DATABASE=your_database
+    DB_USERNAME=your_username
+    DB_PASSWORD=your_password
+
+    TMDB_API_KEY=your_tmdb_api_key
+
+    # Run migrations
+    php artisan migrate --seed
+
+    # Start the dev server
+    php artisan serve
+    npm install && npm run dev
